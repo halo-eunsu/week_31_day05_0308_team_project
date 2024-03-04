@@ -30,7 +30,9 @@ public class JwtAuthenticationFilter  extends UsernamePasswordAuthenticationFilt
     private final JwtProperties jwtProperties;
     private final ObjectMapper objectMapper;
 
-    public JwtAuthenticationFilter(AuthenticationManager authenticationManager, JwtProperties jwtProperties, ObjectMapper objectMapper) {
+    public JwtAuthenticationFilter(AuthenticationManager authenticationManager,
+                                   JwtProperties jwtProperties,
+                                   ObjectMapper objectMapper) {
         super(authenticationManager);
         this.authenticationManager=authenticationManager;
         this.jwtProperties = jwtProperties;
@@ -40,7 +42,8 @@ public class JwtAuthenticationFilter  extends UsernamePasswordAuthenticationFilt
     }
 
     @Override
-    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
+    public Authentication attemptAuthentication(HttpServletRequest request,
+                                                HttpServletResponse response) throws AuthenticationException {
         LoginRequest loginRequest = null;
         try {
             //TODO#3 - LoginRequest dto에 id , password를 바인딩 합니다.
