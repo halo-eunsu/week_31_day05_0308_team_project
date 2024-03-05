@@ -15,7 +15,7 @@ public class Reviews {
     private User user;
 
     @ManyToOne
-    @Column(name = "ProductId")
+    @JoinColumn(name = "ProductId")
     private Products products;
 
     @Column(name = "Rating")

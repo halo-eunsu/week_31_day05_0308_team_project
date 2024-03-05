@@ -1,11 +1,14 @@
 package com.nhnacademy.shoppingmall.entity;
 
+import lombok.Getter;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
 @Entity
 @Table(name = "users")
+@Getter
 public class User {
 
     @Id
