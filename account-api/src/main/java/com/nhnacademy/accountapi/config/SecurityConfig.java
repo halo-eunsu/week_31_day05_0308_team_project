@@ -24,7 +24,7 @@ public class SecurityConfig {
 
     private final JwtProperties jwtProperties;
     private final ObjectMapper objectMapper;
-    private final AuthenticationManager authenticationManager;
+//    private final AuthenticationManager authenticationManager;
 
     @Bean
     @Order(Ordered.HIGHEST_PRECEDENCE)
@@ -35,9 +35,9 @@ public class SecurityConfig {
             .formLogin().disable()
             .httpBasic().disable()
                 //TODO#1-1 - UsernamePasswordAuthenticationFilter를 Custom한 JwtAuthenticationFilter 교체.
-            .addFilterAt(new JwtAuthenticationFilter(authenticationManager,jwtProperties,objectMapper),UsernamePasswordAuthenticationFilter.class)
+            .addFilterAt(new JwtAuthenticationFilter(authenticationManager(null),jwtProperties,objectMapper),UsernamePasswordAuthenticationFilter.class)
             .authorizeRequests()
-            .antMatchers("/api/users/**")
+            .antMatchers("/api/users/**") // 특정 경로에 대한 접근을 누구나 할 수 있도록 허용
             .permitAll()
             .anyRequest().permitAll();
         return http.build();

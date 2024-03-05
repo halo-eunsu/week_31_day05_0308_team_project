@@ -41,6 +41,7 @@ public class JwtAuthenticationFilter  extends UsernamePasswordAuthenticationFilt
         setFilterProcessesUrl(jwtProperties.getLoginUrl());
     }
 
+    // std: 사용자 인증을  시도하는 METHOD
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request,
                                                 HttpServletResponse response) throws AuthenticationException {
@@ -60,8 +61,12 @@ public class JwtAuthenticationFilter  extends UsernamePasswordAuthenticationFilt
         return authentication;
     }
 
+    //std: JWT 생성하는 METHOD
     @Override
-    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException, ServletException {
+    protected void successfulAuthentication(HttpServletRequest request,
+                                            HttpServletResponse response,
+                                            FilterChain chain,
+                                            Authentication authResult) throws IOException, ServletException {
         //TODO#5 인증이 성공 하면 JWT 를 발급 합니다.
         //발급된 jwt 는 base64로 encoding 됩니다.
 
