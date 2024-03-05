@@ -2,7 +2,6 @@ package com.nhnacademy.shoppingmall.controller;
 
 import com.nhnacademy.shoppingmall.entity.User;
 import com.nhnacademy.shoppingmall.repository.UserRepository;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
