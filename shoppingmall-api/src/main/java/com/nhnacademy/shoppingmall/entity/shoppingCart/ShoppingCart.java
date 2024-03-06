@@ -1,4 +1,4 @@
-package com.nhnacademy.shoppingmall.entity;
+package com.nhnacademy.shoppingmall.entity.shoppingCart;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

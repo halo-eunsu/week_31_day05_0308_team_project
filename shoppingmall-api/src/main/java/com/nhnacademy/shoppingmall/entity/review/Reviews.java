@@ -1,9 +1,16 @@
-package com.nhnacademy.shoppingmall.entity;
+package com.nhnacademy.shoppingmall.entity.review;
+
+import com.nhnacademy.shoppingmall.entity.product.Products;
+import com.nhnacademy.shoppingmall.entity.user.User;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "Reviews")
+@Getter
+@Setter
 public class Reviews {
 
     @Id

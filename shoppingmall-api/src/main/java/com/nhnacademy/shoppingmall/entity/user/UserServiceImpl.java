@@ -1,7 +1,5 @@
-package com.nhnacademy.shoppingmall.service;
+package com.nhnacademy.shoppingmall.entity.user;
 
-import com.nhnacademy.shoppingmall.entity.User;
-import com.nhnacademy.shoppingmall.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

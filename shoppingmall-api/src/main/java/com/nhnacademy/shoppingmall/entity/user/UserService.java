@@ -1,6 +1,6 @@
-package com.nhnacademy.shoppingmall.service;
+package com.nhnacademy.shoppingmall.entity.user;
 
-import com.nhnacademy.shoppingmall.entity.User;
+import com.nhnacademy.shoppingmall.entity.user.User;
 
 import java.util.List;
 import java.util.Optional;

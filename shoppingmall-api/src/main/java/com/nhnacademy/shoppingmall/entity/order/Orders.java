@@ -1,4 +1,6 @@
-package com.nhnacademy.shoppingmall.entity;
+package com.nhnacademy.shoppingmall.entity.order;
+
+import com.nhnacademy.shoppingmall.entity.user.User;
 
 import javax.persistence.*;
 import java.util.Date;

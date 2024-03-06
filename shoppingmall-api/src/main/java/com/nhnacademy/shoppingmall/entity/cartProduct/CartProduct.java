@@ -1,4 +1,4 @@
-package com.nhnacademy.shoppingmall.entity;
+package com.nhnacademy.shoppingmall.entity.cartProduct;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

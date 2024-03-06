@@ -1,9 +1,17 @@
-package com.nhnacademy.shoppingmall.entity;
+package com.nhnacademy.shoppingmall.entity.address;
+
+import com.nhnacademy.shoppingmall.entity.user.User;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.stereotype.Service;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "Address")
+@Getter
+@Setter
 public class Address {
 
     @Id

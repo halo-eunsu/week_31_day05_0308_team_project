@@ -1,4 +1,4 @@
-package com.nhnacademy.shoppingmall.entity;
+package com.nhnacademy.shoppingmall.entity.user;
 
 import lombok.Getter;
 
@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "users")
+@Table(name = "Users")
 @Getter
 public class User {
 
@@ -36,9 +36,4 @@ public class User {
     @Column(name = "latest_login_at")
     private Date lastLogin;
 
-//    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
-//    private List<Address> addresses;
-
-//    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
-//    private List<Reviews> reviews;
 }

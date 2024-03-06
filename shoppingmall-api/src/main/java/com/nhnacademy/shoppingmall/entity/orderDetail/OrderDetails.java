@@ -1,8 +1,9 @@
-package com.nhnacademy.shoppingmall.entity;
+package com.nhnacademy.shoppingmall.entity.orderDetail;
+
+import com.nhnacademy.shoppingmall.entity.order.Orders;
+import com.nhnacademy.shoppingmall.entity.product.Products;
 
 import javax.persistence.*;
-import java.io.Serializable;
-import java.math.BigDecimal;
 
 @Entity
 @Table(name = "OrderDetails")

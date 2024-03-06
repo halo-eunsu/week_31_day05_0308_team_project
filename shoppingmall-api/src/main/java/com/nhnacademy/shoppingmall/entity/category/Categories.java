@@ -1,4 +1,9 @@
-package com.nhnacademy.shoppingmall.entity;
+package com.nhnacademy.shoppingmall.entity.category;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +18,8 @@ public class Categories {
     @Column(name = "CategoryID")
     private int categoryId;
 
+    @Setter
     @Column(name = "CategoryName")
     private String categoryName;
+
 }

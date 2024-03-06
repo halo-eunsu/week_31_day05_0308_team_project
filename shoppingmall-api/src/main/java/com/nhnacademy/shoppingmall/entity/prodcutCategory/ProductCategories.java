@@ -1,4 +1,7 @@
-package com.nhnacademy.shoppingmall.entity;
+package com.nhnacademy.shoppingmall.entity.prodcutCategory;
+
+import com.nhnacademy.shoppingmall.entity.category.Categories;
+import com.nhnacademy.shoppingmall.entity.product.Products;
 
 import javax.persistence.*;
 import java.io.Serializable;

@@ -1,4 +1,7 @@
-package com.nhnacademy.shoppingmall.entity;
+package com.nhnacademy.shoppingmall.entity.product;
+
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +11,8 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "Products")
+@Getter
+@Setter
 public class Products {
 
     @Id
