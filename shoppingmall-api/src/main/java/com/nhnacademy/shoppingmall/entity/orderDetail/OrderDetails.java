@@ -2,11 +2,15 @@ package com.nhnacademy.shoppingmall.entity.orderDetail;
 
 import com.nhnacademy.shoppingmall.entity.order.Orders;
 import com.nhnacademy.shoppingmall.entity.product.Products;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "OrderDetails")
+@Getter
+@Setter
 public class OrderDetails {
 
     @Id

@@ -2,6 +2,6 @@ package com.nhnacademy.shoppingmall.entity.orderDetail;
 
 public interface OrderDetailService {
 
-    OrderDetails getOrderDetail();
+    OrderDetails getOrderDetail(int orderDetailId);
 
 }
