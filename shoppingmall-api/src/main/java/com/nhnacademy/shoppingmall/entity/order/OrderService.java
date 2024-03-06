@@ -1,8 +1,8 @@
 package com.nhnacademy.shoppingmall.entity.order;
 
-import java.util.Date;
+import java.util.Optional;
 
 public interface OrderService {
-    Orders getOrders(int orderId);
+    Optional<Orders> getOrders(int orderId);
 
 }
