@@ -1,7 +1,7 @@
 package com.nhnacademy.shoppingmall.controller;
 
 import com.nhnacademy.shoppingmall.entity.user.User;
-import com.nhnacademy.shoppingmall.entity.user.UserRepository;
+import com.nhnacademy.shoppingmall.entity.user.UserService;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,24 +16,21 @@ import java.util.Optional;
 @RestController
 @RequiredArgsConstructor
 public class LoginController {
-    private final UserRepository userRepository;
+    private final UserService userService;
 
     @PostMapping("/login")
     public ResponseEntity<?> doLogin(@RequestBody LoginRequest loginRequest) {
-        Optional<User> userOptional = userRepository.findById(loginRequest.getId());
-        if (userOptional.isPresent()) {
-            User user = userOptional.get();
+        Optional<User> optionalUser = userService.getUser(loginRequest.id);
+        if (optionalUser.isPresent()) {
+            User user = optionalUser.get();
+            HashMap<String, String> resp = new HashMap<>();
+            resp.put("userId", user.getId());
+            resp.put("userName", user.getName());
 
-            if (user.getPassword() != null && user.getPassword().equals(loginRequest.getPassword())) {
-                HashMap<String, String> resp = new HashMap<>();
-                resp.put("id", loginRequest.getId());
-                resp.put("name", user.getName());
-                return ResponseEntity.ok(resp);
-            }
-
+            return ResponseEntity.ok(resp);
         }
         HashMap<String, String> errorResp = new HashMap<>();
-        errorResp.put("error", "Invalid ID or PASSWORD");
+        errorResp.put("error", "Invalid ID or Password");
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(errorResp);
     }
 
