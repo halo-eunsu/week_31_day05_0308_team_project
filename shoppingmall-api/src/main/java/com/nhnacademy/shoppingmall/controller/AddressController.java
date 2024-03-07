@@ -2,6 +2,9 @@ package com.nhnacademy.shoppingmall.controller;
 
 import com.nhnacademy.shoppingmall.entity.address.Address;
 import com.nhnacademy.shoppingmall.entity.address.AddressRepository;
+import com.nhnacademy.shoppingmall.entity.address.AddressService;
+import com.nhnacademy.shoppingmall.entity.user.User;
+import com.nhnacademy.shoppingmall.entity.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
@@ -22,15 +25,15 @@ import java.util.OptionalInt;
 @RequiredArgsConstructor
 public class AddressController {
 
-    private final AddressRepository addressRepository;
+    private final AddressService addressService;
+    private final UserService userService;
 
     @PostMapping("/{addressId}")
     public ResponseEntity<?> getAddress(@PathVariable int addressId) {
 
-        Optional<Address> optionalAddress = addressRepository.findById(addressId);
-
+        Optional<Address> optionalAddress = addressService.getAddress(addressId);
         if (optionalAddress.isPresent()) {
-            Address address =  optionalAddress.get();
+            Address address = optionalAddress.get();
             HashMap<String, String> resp = new HashMap<>();
             resp.put("address", address.getAddress1());
             resp.put("addressDetail", address.getAddress2());
@@ -43,16 +46,18 @@ public class AddressController {
 
     @PostMapping("/user/{userId}")
     public ResponseEntity<?> getAddress(@PathVariable String userId) {
+        //TODO: userId로 Address 찾기
+        Optional<User> optionalUser = userService.getUser(userId);
+        if (optionalUser.isPresent()) {
+            User user = optionalUser.get();
+            List<Address> addresses = addressService.getAddresses(user);
 
-        List<Address> optionalAddress = addressRepository.getAddressesByUserId(userId);
-        if (optionalAddress.isEmpty()) {
-            HashMap<String, String> errorResp = new HashMap<>();
-            errorResp.put("error", "Invalid UserId");
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(errorResp);
+            HashMap<String, List<Address>> resp = new HashMap<>();
+            resp.put("address", addresses);
+            return ResponseEntity.ok(resp);
         }
-        HashMap<String, Address> resp = new HashMap<>();
-        optionalAddress.forEach(
-                address -> resp.put(String.valueOf(address.getAddressId()), address));
-        return ResponseEntity.ok(resp);
+        HashMap<String, String> errorResp = new HashMap<>();
+        errorResp.put("error", "Invalid userId");
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(errorResp);
     }
 }

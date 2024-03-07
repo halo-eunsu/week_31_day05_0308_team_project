@@ -13,8 +13,8 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
     @Override
-    public Optional<Optional<User>> getUser(String id) {
-        return Optional.of(userRepository.findById(id));
+    public Optional<User> getUser(String id) {
+        return userRepository.findById(id);
     }
 
     @Override
