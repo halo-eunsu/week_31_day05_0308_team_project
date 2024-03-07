@@ -1,0 +1,6 @@
+Class
+interface
+abstract class
+
+Domian/Entity
+interface Service -> impl  <- repository
