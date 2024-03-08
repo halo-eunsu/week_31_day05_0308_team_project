@@ -1,51 +1,37 @@
 package com.nhnacademy.accountapi.domain;
 
+
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.util.List;
+import javax.persistence.*;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
-@Table(name = "users")
+@Entity
+@Table(name = "Users")
 public class User {
-
     @Id
     @Column(name = "user_id")
-    private final String userId;
+    private String userId;
 
     @Column(name = "user_name")
-    private final String userName;
+    private String userName;
 
     @Column(name = "user_password")
-    private final String userPassword;
+    private String userPassword;
 
-    @Column(name = "user_auth")
-//    private final String userAuth;
-    private final List<String> userRoles;
-
-    public static enum ROLE{
-        ROLE_ADMIN("관리자"),
-        ROLE_USER("회원");
-
-        ROLE(String role) {
-        }
-    }
     public static User createAdmin(String userId, String userName, String userPassword){
-        return new User(userId,userName,userPassword,List.of(ROLE.ROLE_ADMIN.name()));
+        return new User(userId,userName,userPassword);
     }
 
     public static User createUser(String userId, String userName, String userPassword){
-        return new User(userId,userName,userPassword,List.of(ROLE.ROLE_USER.name()));
+        return new User(userId,userName,userPassword);
     }
-    
-    private User(String userId, String userName, String userPassword, List<String> userRoles) {
-        this.userId = userId;
-        this.userName = userName;
-        this.userPassword = userPassword;
-        this.userRoles = userRoles;
-    }
+
+
+
+
 }

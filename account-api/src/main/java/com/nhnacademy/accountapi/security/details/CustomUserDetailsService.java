@@ -3,15 +3,11 @@ package com.nhnacademy.accountapi.security.details;
 import com.nhnacademy.accountapi.domain.User;
 import com.nhnacademy.accountapi.domain.UserRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Service;
 
-import java.util.Collections;
-import java.util.List;
 import java.util.Optional;
 
 @Slf4j
