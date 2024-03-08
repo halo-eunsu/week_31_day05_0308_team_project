@@ -1,16 +1,17 @@
 package com.nhnacademy.accountapi.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
 @Getter
-@Table(name = "users")
+@Table(name = "Users")
+@Entity
+@NoArgsConstructor(force = true)
+@AllArgsConstructor
 public class User {
 
     @Id
@@ -23,7 +24,12 @@ public class User {
     @Column(name = "user_password")
     private final String userPassword;
 
+
+
+//    @ElementCollection(fetch = FetchType.EAGER)
+//    @CollectionTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"))
     @Column(name = "user_auth")
+//    private final String userAuth;
     private final List<String> userRoles;
 
     public static enum ROLE{
@@ -40,11 +46,11 @@ public class User {
     public static User createUser(String userId, String userName, String userPassword){
         return new User(userId,userName,userPassword,List.of(ROLE.ROLE_USER.name()));
     }
-    
-    private User(String userId, String userName, String userPassword, List<String> userRoles) {
-        this.userId = userId;
-        this.userName = userName;
-        this.userPassword = userPassword;
-        this.userRoles = userRoles;
-    }
+
+//    private User(String userId, String userName, String userPassword, List<String> userRoles) {
+//        this.userId = userId;
+//        this.userName = userName;
+//        this.userPassword = userPassword;
+//        this.userRoles = userRoles;
+//    }
 }
