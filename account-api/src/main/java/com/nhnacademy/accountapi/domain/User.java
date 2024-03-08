@@ -24,7 +24,6 @@ public class User {
     private final String userPassword;
 
     @Column(name = "user_auth")
-//    private final String userAuth;
     private final List<String> userRoles;
 
     public static enum ROLE{
